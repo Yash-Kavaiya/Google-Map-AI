@@ -1,0 +1,108 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+    --primary: 219 100% 50%;
+    --primary-foreground: 210 40% 98%;
+    --secondary: 210 40% 96%;
+    --secondary-foreground: 222.2 84% 4.9%;
+    --muted: 210 40% 96%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+    --accent: 210 40% 96%;
+    --accent-foreground: 222.2 84% 4.9%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 219 100% 50%;
+    --radius: 0.75rem;
+    
+    /* Google Maps Theme Colors */
+    --gmaps-blue: 66 133 244;
+    --gmaps-green: 52 168 83;
+    --gmaps-red: 234 67 53;
+    --gmaps-yellow: 251 188 5;
+    --gmaps-gray: 95 99 104;
+    --gmaps-light-gray: 241 243 244;
+    --gmaps-dark-gray: 32 33 36;
+  }
+
+  .dark {
+    --background: 32 33 36;
+    --foreground: 241 243 244;
+    --card: 32 33 36;
+    --card-foreground: 241 243 244;
+    --popover: 32 33 36;
+    --popover-foreground: 241 243 244;
+    --primary: 66 133 244;
+    --primary-foreground: 32 33 36;
+    --secondary: 95 99 104;
+    --secondary-foreground: 241 243 244;
+    --muted: 95 99 104;
+    --muted-foreground: 189 193 198;
+    --accent: 95 99 104;
+    --accent-foreground: 241 243 244;
+    --destructive: 234 67 53;
+    --destructive-foreground: 241 243 244;
+    --border: 95 99 104;
+    --input: 95 99 104;
+    --ring: 66 133 244;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+  }
+}
+
+/* Google Maps Theme Utilities */
+.gmaps-gradient {
+  background: linear-gradient(135deg, rgb(66, 133, 244) 0%, rgb(52, 168, 83) 100%);
+}
+
+.gmaps-shadow {
+  box-shadow: 0 2px 8px rgba(60, 64, 67, 0.15), 0 1px 4px rgba(60, 64, 67, 0.3);
+}
+
+.gmaps-hover {
+  transition: all 0.2s ease-in-out;
+}
+
+.gmaps-hover:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(60, 64, 67, 0.2), 0 2px 6px rgba(60, 64, 67, 0.4);
+}
+
+.scrollbar-thin {
+  scrollbar-width: thin;
+  scrollbar-color: rgb(189, 193, 198) transparent;
+}
+
+.scrollbar-thin::-webkit-scrollbar {
+  width: 6px;
+}
+
+.scrollbar-thin::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.scrollbar-thin::-webkit-scrollbar-thumb {
+  background-color: rgb(189, 193, 198);
+  border-radius: 6px;
+}
+
+.scrollbar-thin::-webkit-scrollbar-thumb:hover {
+  background-color: rgb(95, 99, 104);
+}
