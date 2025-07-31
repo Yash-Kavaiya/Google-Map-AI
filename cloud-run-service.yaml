@@ -1,0 +1,50 @@
+# Cloud Run service configuration
+apiVersion: serving.knative.dev/v1
+kind: Service
+metadata:
+  annotations:
+    run.googleapis.com/ingress: all  # Allow all traffic
+    run.googleapis.com/execution-environment: gen2  # Use second generation execution environment
+  name: gmap-buddy
+spec:
+  template:
+    metadata:
+      annotations:
+        run.googleapis.com/cpu-throttling: "true"  # Enable CPU throttling when not processing requests
+        run.googleapis.com/memory: "2Gi"  # Allocate 2GB memory
+        run.googleapis.com/max-scale: "10"  # Maximum 10 instances
+        run.googleapis.com/min-scale: "0"   # Scale to zero when no traffic
+    spec:
+      containerConcurrency: 1000  # Maximum concurrent requests per instance
+      timeoutSeconds: 300  # Request timeout in seconds
+      containers:
+      - image: gcr.io/PROJECT_ID/gmap-buddy:latest  # Replace PROJECT_ID with your actual project ID
+        ports:
+        - containerPort: 8080
+        env:
+        - name: GOOGLE_MAPS_API_KEY
+          valueFrom:
+            secretKeyRef:
+              name: google-maps-api-key
+              key: api-key
+        - name: PORT
+          value: "8080"
+        resources:
+          limits:
+            cpu: "2"      # 2 vCPU
+            memory: "2Gi" # 2GB RAM
+          requests:
+            cpu: "1"      # 1 vCPU minimum
+            memory: "1Gi" # 1GB RAM minimum
+        livenessProbe:
+          httpGet:
+            path: /health
+            port: 8080
+          initialDelaySeconds: 30
+          periodSeconds: 30
+        readinessProbe:
+          httpGet:
+            path: /health
+            port: 8080
+          initialDelaySeconds: 10
+          periodSeconds: 10

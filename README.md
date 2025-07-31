@@ -10,6 +10,9 @@ A comprehensive Google Maps integration tool that enhances your mapping experien
 
 GMap-Buddy is a powerful tool designed to simplify and enhance Google Maps integration in your applications. Whether you're building location-based services, route optimization systems, or geographic data visualization tools, GMap-Buddy provides the essential features you need.
 
+![GMap-Buddy UI](UI.png)
+*Modern and intuitive user interface for seamless mapping experience*
+
 ## ✨ Features
 
 - **Easy Google Maps API Integration** - Simplified wrapper for Google Maps services
@@ -28,6 +31,8 @@ GMap-Buddy is a powerful tool designed to simplify and enhance Google Maps integ
 - Python 3.8 or higher
 - Google Maps API Key ([Get one here](https://developers.google.com/maps/documentation/javascript/get-api-key))
 - pip package manager
+- Docker (for containerized deployment)
+- Google Cloud CLI (for Cloud Run deployment)
 
 ### Installation
 
@@ -53,6 +58,43 @@ pip install -r requirements.txt
 cp .env.example .env
 # Edit .env and add your Google Maps API key
 ```
+
+### 🐳 Docker Deployment
+
+To run GMap-Buddy using Docker:
+
+```bash
+# Build the Docker image
+docker build -t gmap-buddy .
+
+# Run the container
+docker run -d \
+  -p 8080:8080 \
+  -e GOOGLE_MAPS_API_KEY="your_api_key_here" \
+  --name gmap-buddy-container \
+  gmap-buddy
+```
+
+### ☁️ Google Cloud Run Deployment
+
+Deploy to Google Cloud Run with a single command:
+
+```bash
+# Make the deployment script executable
+chmod +x deploy.sh
+
+# Set your Google Maps API key
+export GOOGLE_MAPS_API_KEY="your_api_key_here"
+
+# Deploy to Cloud Run
+./deploy.sh
+```
+
+The deployment script will:
+- Enable required Google Cloud APIs
+- Create secrets for your API key
+- Build and deploy the container
+- Configure auto-scaling and health checks
 
 ## 📖 Usage
 
@@ -115,11 +157,17 @@ CACHE_TTL=3600
 
 ## 📁 Project Structure
 
+![Technical Architecture](Tech-Diagram.png)
+*Technical architecture diagram showing the system components and data flow*
+
 ```
 GMap-Buddy/
 ├── adk-ui/                  # ADK UI components
 ├── gmap-buddy/              # Core GMap-Buddy implementation
-├── my_sample_agent/         # Sample agent implementation
+│   ├── agent.py            # Main AI agent
+│   ├── main.py             # FastAPI web server
+│   ├── prompt.py           # AI prompts and instructions
+│   └── __init__.py
 ├── src/
 │   ├── __init__.py
 │   ├── gmap_buddy.py
@@ -143,9 +191,15 @@ GMap-Buddy/
 │   ├── installation.md
 │   ├── api_reference.md
 │   └── examples.md
+├── Dockerfile               # Docker container configuration
+├── docker-entrypoint.sh     # Container startup script
+├── deploy.sh               # Cloud Run deployment script
+├── cloudbuild.yaml         # Cloud Build configuration
+├── cloud-run-service.yaml  # Cloud Run service definition
 ├── requirements.txt
 ├── setup.py
 ├── .env.example
+├── .dockerignore
 ├── .gitignore
 ├── LICENSE
 └── README.md
@@ -179,6 +233,9 @@ We welcome contributions! Please see our [Contributing Guidelines](CONTRIBUTING.
 ## 📝 API Documentation
 
 For detailed API documentation, please refer to our [API Reference](docs/api_reference.md).
+
+![MCP Map Tools](mcp_map_tools.png)
+*Model Context Protocol (MCP) integration showing available map tools and capabilities*
 
 ### Core Methods
 
