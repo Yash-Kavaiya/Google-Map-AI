@@ -52,6 +52,7 @@ pip install -r requirements.txt
 ```bash
 cp .env.example .env
 # Edit .env and add your Google Maps API key
+# Edit .env and add your Google Maps API key
 ```
 
 ## 📖 Usage
