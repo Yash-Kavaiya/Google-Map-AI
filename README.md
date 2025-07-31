@@ -100,52 +100,6 @@ python -m gmap_buddy.main
 
 Your GMap-Buddy will be available at `http://localhost:8080`
 
-### 🐳 Docker Deployment
-
-The application uses a multi-stage Docker build for optimal performance and security:
-
-```bash
-# Build the Docker image
-docker build -t gmap-buddy .
-
-# Run the container
-docker run -d \
-  -p 8080:8080 \
-  -e GOOGLE_MAPS_API_KEY="your_api_key_here" \
-  --name gmap-buddy-container \
-  gmap-buddy
-
-# Check container health
-docker ps
-curl http://localhost:8080/health
-```
-
-### ☁️ Google Cloud Run Deployment
-
-Deploy to Google Cloud Run with the included deployment configuration:
-
-```bash
-# Enable required Google Cloud APIs
-gcloud services enable run.googleapis.com
-gcloud services enable cloudbuild.googleapis.com
-
-# Set your project and region
-gcloud config set project YOUR_PROJECT_ID
-gcloud config set run/region us-central1
-
-# Deploy with Cloud Build
-gcloud run deploy gmap-buddy \
-  --source . \
-  --platform managed \
-  --allow-unauthenticated \
-  --set-env-vars="GOOGLE_MAPS_API_KEY=your_api_key_here"
-```
-
-The deployment will:
-- Build the container using Cloud Build
-- Deploy to Cloud Run with auto-scaling
-- Configure health checks and security settings
-- Provide a public HTTPS URL
 
 ## 📖 Usage
 
@@ -171,43 +125,6 @@ The AI assistant follows a structured approach:
 4. **Preferences** - Travel style, budget, interests, pets, dietary needs
 5. **Custom Itinerary** - Personalized recommendations with weather and packing advice
 
-### Example Interaction
-
-```
-🚗 Road Trip Assistant: Where would you like to start your journey?
-User: San Francisco
-
-🗺️ Perfect! Where are you heading?
-User: Los Angeles, but I'd like to take the scenic route through Big Sur
-
-⭐ Excellent choice! How many days do you have for this trip?
-User: 3 days
-
-🐕 Are you traveling with any pets?
-User: Yes, my dog
-
-💰 What's your budget preference? (Budget/Mid-range/Luxury)
-User: Mid-range
-
-🎯 What are your main interests? (Nature/Food/History/Adventure/Photography)
-User: Nature and photography
-
-🌤️ Let me create your perfect Big Sur road trip itinerary...
-```
-
-### API Endpoints
-
-For programmatic access:
-
-```bash
-# Health check
-curl http://localhost:8080/health
-
-# Chat with the assistant
-curl -X POST http://localhost:8080/api/chat \
-  -H "Content-Type: application/json" \
-  -d '{"message": "Plan a 2-day trip from Seattle to Portland"}'
-```
 
 ## 🛠️ Configuration
 
@@ -417,52 +334,6 @@ We welcome contributions to make GMap-Buddy even better! Here's how you can help
 - 📫 **Issues**: [GitHub Issues](https://github.com/Yash-Kavaiya/GMap-Buddy/issues)
 - 💬 **Discussions**: [GitHub Discussions](https://github.com/Yash-Kavaiya/GMap-Buddy/discussions)
 
-## � Troubleshooting
-
-### Common Issues
-
-#### 🔑 API Key Problems
-```bash
-# Check if your API key is set
-echo $GOOGLE_MAPS_API_KEY
-
-# Verify API key has required permissions:
-# - Maps JavaScript API
-# - Places API
-# - Directions API
-# - Geocoding API
-```
-
-#### 🐳 Docker Issues
-```bash
-# Check container logs
-docker logs gmap-buddy-container
-
-# Verify environment variables
-docker exec gmap-buddy-container env | grep GOOGLE_MAPS_API_KEY
-```
-
-#### 🌐 Network & Connectivity
-```bash
-# Test API connectivity
-curl "https://maps.googleapis.com/maps/api/geocode/json?address=1600+Amphitheatre+Parkway&key=YOUR_API_KEY"
-
-# Check container health
-curl http://localhost:8080/health
-```
-
-#### 📦 Dependencies
-```bash
-# Rebuild frontend if needed
-cd adk-ui
-rm -rf .next node_modules
-npm install
-npm run build
-
-# Reinstall Python dependencies if needed
-pip install --upgrade -r requirements.txt
-```
-
 ### Performance Tips
 
 - **API Optimization**: The MCP integration handles caching automatically
@@ -497,33 +368,6 @@ pip install --upgrade -r requirements.txt
 - [ ] **GraphQL API** - More flexible API queries
 - [ ] **WebSocket Support** - Real-time updates
 - [ ] **Analytics Dashboard** - Usage insights and metrics
-
-## � License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-## 📈 Stats & Metrics
-
-- **🌟 GitHub Stars**: Growing community of travel enthusiasts
-- **🍴 Forks**: Open source contributions welcome
-- **🐛 Issues**: Active bug tracking and feature requests
-- **📦 Releases**: Regular updates with new features
-
-## 🔗 Related Projects
-
-- **[Google ADK](https://github.com/google/agent-development-kit)** - Agent Development Kit framework
-- **[Model Context Protocol](https://modelcontextprotocol.io/)** - Tool integration protocol
-- **[Google Maps Platform](https://developers.google.com/maps)** - Maps APIs and services
-
-## � Acknowledgments
-
-- **Google Maps Platform** - For providing comprehensive mapping APIs
-- **Google ADK Team** - For the powerful Agent Development Kit framework
-- **Model Context Protocol** - For enabling seamless tool integration
-- **Next.js Team** - For the excellent React framework
-- **FastAPI Community** - For the high-performance Python web framework
-- **Open Source Community** - For inspiration, feedback, and contributions
-- **Beta Testers** - For helping us improve the user experience
 
 ## �📞 Contact & Support
 
