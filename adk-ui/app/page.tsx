@@ -295,7 +295,7 @@ export default function Home() {
         onCopyConversation={(id) => {}}
         onEmailConversation={(id) => {}}
         isConnected={isConnected}
-        agentName="Maps Assistant"
+        agentName="Google Maps AI"  // Updated agent name
       />
       
       <div className="flex-1 flex flex-col min-h-screen">
@@ -307,7 +307,7 @@ export default function Home() {
                 onSendMessage={handleSendMessage}
                 messages={messages}
                 isLoading={isLoading}
-                agentName="Maps Assistant"
+                agentName="Google Maps AI"
                 isConnected={isConnected}
               />
             </div>

@@ -226,7 +226,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
       {/* Footer */}
       <div className="p-4 border-t border-gray-200 bg-gray-50">
         <div className="text-xs text-gray-500 text-center">
-          <div className="font-medium">Google Maps Assistant</div>
+          <div className="font-medium">Google Maps AI</div>
           <div>Powered by ADK</div>
         </div>
       </div>

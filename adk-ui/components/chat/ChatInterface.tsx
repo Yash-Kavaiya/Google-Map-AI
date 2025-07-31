@@ -94,7 +94,7 @@ export const ChatInterface: React.FC<ChatInterfaceProps> = ({
             </div>
             <div>
               <div className="font-semibold text-lg">{agentName}</div>
-              <div className="text-sm text-blue-100">Google Maps Assistant</div>
+              <div className="text-sm text-blue-100">Google Maps AI </div>
             </div>
           </div>
           <div className="flex items-center gap-3">

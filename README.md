@@ -18,6 +18,15 @@ Google Maps AI is an intelligent road trip planning assistant powered by Google'
 ![GMap-Buddy UI](Images/UI.png)
 *Modern and intuitive chat interface for seamless trip planning*
 
+## 🔗 Links & Resources
+
+### 🏆 Project Showcase
+- **Devpost**: [Celebrating Google Maps](https://devpost.com/software/celebrating-google-maps) - Our project submission showcasing the capabilities and features
+
+### 👥 Contributors & Team
+- **Yash Kavaiya**: [GitHub](https://github.com/Yash-Kavaiya) | [LinkedIn](https://www.linkedin.com/in/yashkavaiya/)
+- **Vinod Kumar Konkal**: [LinkedIn](https://www.linkedin.com/in/vinod-kumar-konkal/)
+- **Wiikay**: [GitHub](https://github.com/Wiikay)
 
 ## ✨ Features
 
@@ -332,7 +341,6 @@ We welcome contributions to make GMap-Buddy even better! Here's how you can help
 - 💬 **Discussions**: [Community discussions](https://github.com/Yash-Kavaiya/GMap-Buddy/discussions)
 - 📖 **Documentation**: [Wiki & Guides](https://github.com/Yash-Kavaiya/GMap-Buddy/wiki)
 
-### 🌐 Project Links
-- 🏠 **Homepage**: [GMap-Buddy](https://github.com/Yash-Kavaiya/GMap-Buddy)
-- 📦 **Releases**: [Latest releases](https://github.com/Yash-Kavaiya/GMap-Buddy/releases)
-- 🎯 **Project Board**: [Development progress](https://github.com/Yash-Kavaiya/GMap-Buddy/projects)
+
+
+
