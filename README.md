@@ -341,42 +341,6 @@ We welcome contributions to make GMap-Buddy even better! Here's how you can help
 - **Memory Usage**: The Docker container is optimized for memory efficiency
 - **Scaling**: Use Cloud Run for automatic scaling based on traffic
 
-## �️ Roadmap
-
-### 🎯 Short Term (Q1 2025)
-- [ ] **Enhanced Voice Controls** - Voice input for hands-free planning
-- [ ] **Offline Mode** - Basic functionality without internet
-- [ ] **Multi-language Support** - Spanish, French, German support
-- [ ] **Mobile App** - React Native mobile application
-
-### 🚀 Medium Term (Q2-Q3 2025)
-- [ ] **Real-time Traffic Integration** - Live traffic-aware routing
-- [ ] **Weather API Integration** - More detailed weather forecasting
-- [ ] **Social Features** - Share itineraries with friends
-- [ ] **AI Photo Analysis** - Upload photos to get location recommendations
-
-### 🌟 Long Term (Q4 2025+)
-- [ ] **Custom Map Styling** - Personalized map themes
-- [ ] **AR Integration** - Augmented reality navigation features
-- [ ] **Booking Integration** - Direct hotel/restaurant reservations
-- [ ] **Group Trip Planning** - Collaborative trip planning
-- [ ] **IoT Integration** - Smart car and device connectivity
-
-### 🛠️ Technical Improvements
-- [ ] **Performance Optimization** - Faster response times
-- [ ] **Kubernetes Support** - Advanced container orchestration
-- [ ] **GraphQL API** - More flexible API queries
-- [ ] **WebSocket Support** - Real-time updates
-- [ ] **Analytics Dashboard** - Usage insights and metrics
-
-## �📞 Contact & Support
-
-### 👨‍💻 Author
-**Yash Kavaiya**
-- 🐙 **GitHub**: [@Yash-Kavaiya](https://github.com/Yash-Kavaiya)
-- 🔗 **LinkedIn**: [Yash Kavaiya](https://linkedin.com/in/yash-kavaiya)
-- 📧 **Email**: yash.kavaiya@example.com
-
 ### 🆘 Get Help
 - 📋 **Issues**: [Report bugs or request features](https://github.com/Yash-Kavaiya/GMap-Buddy/issues)
 - 💬 **Discussions**: [Community discussions](https://github.com/Yash-Kavaiya/GMap-Buddy/discussions)
@@ -387,7 +351,6 @@ We welcome contributions to make GMap-Buddy even better! Here's how you can help
 - 📦 **Releases**: [Latest releases](https://github.com/Yash-Kavaiya/GMap-Buddy/releases)
 - 🎯 **Project Board**: [Development progress](https://github.com/Yash-Kavaiya/GMap-Buddy/projects)
 
----
 
 <div align="center">
 
