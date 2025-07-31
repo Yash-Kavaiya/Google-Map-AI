@@ -25,8 +25,7 @@ Google Maps AI is an intelligent road trip planning assistant powered by Google'
 
 ### 👥 Contributors & Team
 - **Yash Kavaiya**: [GitHub](https://github.com/Yash-Kavaiya) | [LinkedIn](https://www.linkedin.com/in/yashkavaiya/)
-- **Vinod Kumar Konkal**: [LinkedIn](https://www.linkedin.com/in/vinod-kumar-konkal/)
-- **Wiikay**: [GitHub](https://github.com/Wiikay)
+- **Vinod Kumar Konkal**: [LinkedIn](https://www.linkedin.com/in/vinod-kumar-konkal/) | [GitHub](https://github.com/Wiikay)
 
 ## ✨ Features
 
