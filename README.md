@@ -1,4 +1,4 @@
-# GMap-Buddy 🗺️
+# Google Maps AI - Sync your journey to your beat, powered by Gemini 2.0 Flash AI 🗺️
 
 An AI-powered Google Maps assistant that helps you plan amazing road trips and explore the world with intelligent route planning, location discovery, and personalized travel recommendations.
 
@@ -10,10 +10,13 @@ An AI-powered Google Maps assistant that helps you plan amazing road trips and e
 
 ## 🌟 Overview
 
-GMap-Buddy is an intelligent road trip planning assistant powered by Google's Agent Development Kit (ADK) and the Model Context Protocol (MCP). It combines the power of AI with Google Maps services to create personalized travel experiences, complete with route optimization, weather forecasts, accommodation suggestions, and local recommendations.
+Google Maps AI is a powerful tool designed to simplify and enhance Google Maps integration in your applications. Whether you're building location-based services, route optimization systems, or geographic data visualization tools, Google Maps AI provides the essential features you need.
+
+Google Maps AI is an intelligent road trip planning assistant powered by Google's Agent Development Kit (ADK) and the Model Context Protocol (MCP). It combines the power of AI with Google Maps services to create personalized travel experiences, complete with route optimization, weather forecasts, accommodation suggestions, and local recommendations.
 
 ![GMap-Buddy UI](Images/UI.png)
 *Modern and intuitive chat interface for seamless trip planning*
+
 
 ## ✨ Features
 
@@ -83,27 +86,9 @@ docker run -d \
   gmap-buddy
 ```
 
-#### Option B: Local Development
-```bash
-# Install Python dependencies
-pip install -r requirements.txt
-
-# Install and build frontend
-cd adk-ui
-npm install
-npm run build
-cd ..
-
-# Start the application
-python -m gmap_buddy.main
-```
 
 Your GMap-Buddy will be available at `http://localhost:8080`
 
-
-## 📖 Usage
-
-### Chat Interface
 
 GMap-Buddy provides a conversational interface where you can naturally describe your travel needs:
 
@@ -350,14 +335,3 @@ We welcome contributions to make GMap-Buddy even better! Here's how you can help
 - 🏠 **Homepage**: [GMap-Buddy](https://github.com/Yash-Kavaiya/GMap-Buddy)
 - 📦 **Releases**: [Latest releases](https://github.com/Yash-Kavaiya/GMap-Buddy/releases)
 - 🎯 **Project Board**: [Development progress](https://github.com/Yash-Kavaiya/GMap-Buddy/projects)
-
-
-<div align="center">
-
-### ⭐ **Star this repository if you find it helpful!** ⭐
-
-**Made with ❤️ by [Yash Kavaiya](https://github.com/Yash-Kavaiya)**
-
-*Ready to plan your next adventure? Let GMap-Buddy be your AI travel companion! 🚗✨*
-
-</div>
