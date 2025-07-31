@@ -1,4 +1,4 @@
-# GMap-Buddy 🗺️
+# Google Maps AI - Sync your journey to your beat, powered by Gemini 2.0 Flash AI 🗺️
 
 A comprehensive Google Maps integration tool that enhances your mapping experience with advanced features and seamless functionality.
 
@@ -8,7 +8,7 @@ A comprehensive Google Maps integration tool that enhances your mapping experien
 
 ## 🌟 Overview
 
-GMap-Buddy is a powerful tool designed to simplify and enhance Google Maps integration in your applications. Whether you're building location-based services, route optimization systems, or geographic data visualization tools, GMap-Buddy provides the essential features you need.
+Google Maps AI is a powerful tool designed to simplify and enhance Google Maps integration in your applications. Whether you're building location-based services, route optimization systems, or geographic data visualization tools, GMap-Buddy provides the essential features you need.
 
 ## ✨ Features
 
@@ -59,10 +59,10 @@ cp .env.example .env
 ### Basic Example
 
 ```python
-from gmap_buddy import GMapBuddy
+from gmap_buddy import Google Maps AI
 
 # Initialize with your API key
-gmaps = GMapBuddy(api_key="YOUR_API_KEY")
+gmaps = Google Maps AI(api_key="YOUR_API_KEY")
 
 # Search for a location
 location = gmaps.search_place("Eiffel Tower, Paris")
