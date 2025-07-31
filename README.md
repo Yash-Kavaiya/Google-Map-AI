@@ -1,4 +1,5 @@
-# Google Maps AI - Sync your journey to your beat, powered by Gemini 2.0 Flash AI 🗺️
+# Google Maps AI 
+### Sync your journey to your beat, powered by Gemini 2.0 Flash AI 🗺️
 
 An AI-powered Google Maps assistant that helps you plan amazing road trips and explore the world with intelligent route planning, location discovery, and personalized travel recommendations.
 
