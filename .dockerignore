@@ -1,0 +1,67 @@
+# Add Docker and Cloud Run related files
+Dockerfile
+.dockerignore
+cloudbuild.yaml
+deploy.sh
+cloud-run-service.yaml
+
+# Docker build context should be clean
+.git/
+.gitignore
+README.md
+*.md
+*.png
+.vscode/
+
+# Python cache and build artifacts
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Node.js dependencies and build artifacts  
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.next/
+out/
+
+# Environment files (should be handled via Cloud Run secrets)
+.env
+.env.local
+.env.development
+.env.test
+.env.production
+
+# IDE and editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
