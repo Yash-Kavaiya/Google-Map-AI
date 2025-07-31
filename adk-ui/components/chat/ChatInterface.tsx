@@ -1,6 +1,8 @@
 'use client';
 
 import React, { useState, useRef, useEffect } from 'react';
+import ReactMarkdown from 'react-markdown';
+import remarkGfm from 'remark-gfm';
 import { Button } from '../ui/button';
 import { Input } from '../ui/input';
 import { Card, CardContent, CardHeader, CardTitle } from '../ui/card';
@@ -120,7 +122,7 @@ export const ChatInterface: React.FC<ChatInterfaceProps> = ({
         {messages.length === 0 ? (
           <div className="h-full flex flex-col items-center justify-center p-8 text-center">
             <div className="w-20 h-20 bg-gradient-to-br from-blue-500 to-green-500 rounded-full flex items-center justify-center mb-6 shadow-lg">
-              <MapIcon className="w-10 h-10" />
+              <MapIcon />
             </div>
             <h3 className="text-2xl font-bold text-gray-900 mb-3">
               Welcome to Google Maps Assistant
@@ -139,7 +141,7 @@ export const ChatInterface: React.FC<ChatInterfaceProps> = ({
                 >
                   <div className="flex items-center gap-3">
                     <div className="w-8 h-8 bg-blue-500 rounded-lg flex items-center justify-center group-hover:bg-blue-600 transition-colors">
-                      <MapIcon className="w-4 h-4 text-white" />
+                      <MapIcon />
                     </div>
                     <span className="text-sm font-medium text-gray-700">{query}</span>
                   </div>
@@ -161,8 +163,57 @@ export const ChatInterface: React.FC<ChatInterfaceProps> = ({
                       : 'bg-gray-100 text-gray-900 border border-gray-200 shadow-sm'
                   }`}
                 >
-                  <div className="text-sm leading-relaxed whitespace-pre-wrap">
-                    {message.content}
+                  <div className={`text-sm leading-relaxed ${
+                    message.role === 'user' ? 'text-white' : 'text-gray-900'
+                  }`}>
+                    {message.role === 'assistant' ? (
+                      <ReactMarkdown 
+                        remarkPlugins={[remarkGfm]}
+                        components={{
+                          // Custom styling for markdown elements
+                          h1: ({children}) => <h1 className="text-lg font-bold mb-2">{children}</h1>,
+                          h2: ({children}) => <h2 className="text-base font-semibold mb-2">{children}</h2>,
+                          h3: ({children}) => <h3 className="text-sm font-medium mb-1">{children}</h3>,
+                          p: ({children}) => <p className="mb-2 last:mb-0">{children}</p>,
+                          ul: ({children}) => <ul className="list-disc list-inside mb-2 space-y-1">{children}</ul>,
+                          ol: ({children}) => <ol className="list-decimal list-inside mb-2 space-y-1">{children}</ol>,
+                          li: ({children}) => <li className="text-sm">{children}</li>,
+                          a: ({href, children}) => (
+                            <a 
+                              href={href} 
+                              target="_blank" 
+                              rel="noopener noreferrer"
+                              className="text-blue-600 hover:text-blue-800 underline"
+                            >
+                              {children}
+                            </a>
+                          ),
+                          code: ({children, className}) => {
+                            const isInline = !className;
+                            return isInline ? (
+                              <code className="bg-gray-200 px-1 py-0.5 rounded text-xs font-mono">
+                                {children}
+                              </code>
+                            ) : (
+                              <code className="block bg-gray-200 p-2 rounded text-xs font-mono overflow-x-auto">
+                                {children}
+                              </code>
+                            );
+                          },
+                          blockquote: ({children}) => (
+                            <blockquote className="border-l-4 border-gray-300 pl-3 my-2 italic">
+                              {children}
+                            </blockquote>
+                          ),
+                          strong: ({children}) => <strong className="font-semibold">{children}</strong>,
+                          em: ({children}) => <em className="italic">{children}</em>,
+                        }}
+                      >
+                        {message.content}
+                      </ReactMarkdown>
+                    ) : (
+                      <div className="whitespace-pre-wrap">{message.content}</div>
+                    )}
                   </div>
                   <div className={`text-xs mt-2 ${
                     message.role === 'user' ? 'text-blue-100' : 'text-gray-500'

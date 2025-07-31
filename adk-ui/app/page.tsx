@@ -302,7 +302,7 @@ export default function Home() {
         {/* Chat Area */}
         <main className="flex-1 p-6">
           <div className="max-w-6xl mx-auto h-full">
-            <div className="h-[calc(100vh-140px)]">
+            <div className="h-[calc(115vh-140px)]">
               <ChatInterface
                 onSendMessage={handleSendMessage}
                 messages={messages}

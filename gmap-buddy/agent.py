@@ -2,7 +2,7 @@
 import os
 from google.adk.agents import LlmAgent
 from google.adk.tools.mcp_tool.mcp_toolset import MCPToolset, StdioServerParameters
-
+from . import prompt
 # Retrieve the API key from an environment variable or directly insert it.
 # Using an environment variable is generally safer.
 # Ensure this environment variable is set in the terminal where you run 'adk web'.
@@ -19,7 +19,7 @@ if not google_maps_api_key:
 root_agent = LlmAgent(
     model='gemini-2.0-flash',
     name='maps_assistant_agent',
-    instruction='Help the user with mapping, directions, and finding places using Google Maps tools.',
+    instruction=prompt.instruction,
     tools=[
         MCPToolset(
             connection_params=StdioServerParameters(
@@ -36,6 +36,10 @@ root_agent = LlmAgent(
             ),
             # You can filter for specific Maps tools if needed:
             # tool_filter=['get_directions', 'find_place_by_id']
-        )
+        ),
+        
     ],
 )
+
+
+
