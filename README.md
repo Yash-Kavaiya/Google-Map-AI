@@ -8,7 +8,7 @@ A comprehensive Google Maps integration tool that enhances your mapping experien
 
 ## 🌟 Overview
 
-Google Maps AI is a powerful tool designed to simplify and enhance Google Maps integration in your applications. Whether you're building location-based services, route optimization systems, or geographic data visualization tools, GMap-Buddy provides the essential features you need.
+Google Maps AI is a powerful tool designed to simplify and enhance Google Maps integration in your applications. Whether you're building location-based services, route optimization systems, or geographic data visualization tools, Google Maps AI provides the essential features you need.
 
 ## ✨ Features
 
