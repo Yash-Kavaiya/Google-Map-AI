@@ -1,1 +1,8 @@
+# Google Agent Development Kit
 google-adk
+
+# Additional dependencies that might be needed
+# Uncomment if you encounter import errors
+# fastapi
+# uvicorn
+# python-multipart

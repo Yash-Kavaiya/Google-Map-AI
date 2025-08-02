@@ -13,15 +13,16 @@ COPY adk-ui/ ./
 RUN npm run build
 
 # Python runtime stage
-FROM python:3.11-slim AS backend
+FROM python:3.11-slim AS runtime
 
 # Set environment variables
 ENV PYTHONUNBUFFERED=1 \
     PYTHONDONTWRITEBYTECODE=1 \
     PIP_NO_CACHE_DIR=1 \
-    PIP_DISABLE_PIP_VERSION_CHECK=1
+    PIP_DISABLE_PIP_VERSION_CHECK=1 \
+    PORT=8080
 
-# Install system dependencies
+# Install system dependencies including Node.js for ADK web command
 RUN apt-get update && apt-get install -y \
     curl \
     nodejs \
@@ -38,8 +39,8 @@ WORKDIR /app
 COPY requirements.txt ./
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Copy Python source code
-COPY gmap-buddy/ ./gmap-buddy/
+# Copy the google-map-adk directory (your ADK agent)
+COPY google-map-adk/ ./google-map-adk/
 
 # Copy built frontend from previous stage
 COPY --from=frontend-builder /app/adk-ui/.next ./adk-ui/.next
@@ -55,12 +56,12 @@ RUN chmod +x docker-entrypoint.sh
 RUN chown -R appuser:appuser /app
 USER appuser
 
-# Expose port (Cloud Run uses PORT environment variable)
+# Expose port
 EXPOSE 8080
 
-# Health check
+# Health check - check if ADK web server is running
 HEALTHCHECK --interval=30s --timeout=10s --start-period=30s --retries=3 \
-    CMD curl -f http://localhost:8080/ || exit 1
+    CMD curl -f http://localhost:8080/health || exit 1
 
 # Start the application
 ENTRYPOINT ["./docker-entrypoint.sh"]

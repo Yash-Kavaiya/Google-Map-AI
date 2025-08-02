@@ -1,0 +1,36 @@
+version: '3.8'
+
+services:
+  google-maps-ai:
+    build: .
+    ports:
+      - "8080:8080"
+    environment:
+      - GOOGLE_MAPS_API_KEY=${GOOGLE_MAPS_API_KEY}
+      - PORT=8080
+    volumes:
+      # Mount source code for development (optional)
+      - ./google-map-adk:/app/google-map-adk:ro
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8080/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+
+  # Development service for local development
+  dev:
+    build: .
+    ports:
+      - "8080:8080"
+    environment:
+      - GOOGLE_MAPS_API_KEY=${GOOGLE_MAPS_API_KEY}
+      - PORT=8080
+    volumes:
+      # Mount source code for live development
+      - ./google-map-adk:/app/google-map-adk
+      - ./adk-ui:/app/adk-ui
+    restart: unless-stopped
+    profiles:
+      - dev
