@@ -86,17 +86,50 @@ export GOOGLE_MAPS_API_KEY="your_api_key_here"
 
 #### Option A: Docker (Recommended)
 ```bash
+# Clone and setup
+git clone https://github.com/Yash-Kavaiya/Google-Map-AI.git
+cd Google-Map-AI
+
+# Copy environment template
+cp .env.example .env
+# Edit .env file and add your GOOGLE_MAPS_API_KEY
+
 # Build and run with Docker
-docker build -t gmap-buddy .
+docker build -t google-maps-ai .
 docker run -d \
   -p 8080:8080 \
   -e GOOGLE_MAPS_API_KEY="your_api_key_here" \
-  --name gmap-buddy-container \
-  gmap-buddy
+  --name google-maps-ai \
+  google-maps-ai
 ```
 
+#### Option B: Docker Compose (Development)
+```bash
+# Setup environment
+cp .env.example .env
+# Edit .env and add your API key
 
-Your GMap-Buddy will be available at `http://localhost:8080`
+# Run with docker-compose
+docker-compose up -d
+
+# For development with live reload
+docker-compose --profile dev up
+```
+
+#### Option C: Local Development
+```bash
+# Backend (ADK Agent)
+pip install -r requirements.txt
+export GOOGLE_MAPS_API_KEY="your_api_key_here"
+adk web
+
+# Frontend (in separate terminal)
+cd adk-ui
+npm install
+npm run dev
+```
+
+Your Google Maps AI will be available at `http://localhost:8080`
 
 
 GMap-Buddy provides a conversational interface where you can naturally describe your travel needs:
@@ -154,10 +187,9 @@ GOOGLE_ADK_MODEL=gemini-2.0-flash  # AI model to use
 *Data flow diagram showing how user inputs are processed through the AI agent and MCP tools*
 
 ```
-GMap-Buddy/
-├── 📁 gmap-buddy/           # Python backend
+Google-Map-AI/
+├── 📁 google-map-adk/       # Python ADK agent
 │   ├── agent.py            # Google ADK AI agent configuration
-│   ├── main.py             # FastAPI web server
 │   ├── prompt.py           # AI prompts and conversation flow
 │   └── __init__.py
 ├── 📁 adk-ui/              # Next.js frontend
@@ -183,7 +215,10 @@ GMap-Buddy/
 │   ├── DataPipelineDiagram.png  # Data flow diagram
 │   ├── SequenceDiagram.png     # Sequence diagram
 │   └── mcp_map_tools.png       # MCP tools overview
-├── 📄 Dockerfile          # Container configuration
+├── 📄 Dockerfile          # Multi-stage container configuration
+├── 📄 docker-compose.yml  # Docker Compose for development
+├── 📄 docker-entrypoint.sh # Container startup script
+├── 📄 .env.example        # Environment variables template
 ├── 📄 requirements.txt    # Python dependencies
 ├── 📄 README.md          # This file
 └── 📄 .gitignore         # Git ignore rules
