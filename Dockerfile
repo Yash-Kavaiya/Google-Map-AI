@@ -6,7 +6,7 @@ WORKDIR /app/adk-ui
 
 # Copy package files and install dependencies
 COPY adk-ui/package*.json ./
-RUN npm ci --only=production
+RUN npm install
 
 # Copy frontend source and build
 COPY adk-ui/ ./
@@ -27,6 +27,7 @@ RUN apt-get update && apt-get install -y \
     curl \
     nodejs \
     npm \
+    procps \
     && rm -rf /var/lib/apt/lists/*
 
 # Create non-root user for security

@@ -164,7 +164,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
                         setShowExportMenu(showExportMenu === conversation.id ? null : conversation.id);
                       }}
                     >
-                      
+                      <span className="sr-only">Export</span>
                     </Button>
                     
                     {showExportMenu === conversation.id && (
