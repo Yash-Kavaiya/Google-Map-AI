@@ -18,7 +18,7 @@ if not google_maps_api_key:
 
 root_agent = LlmAgent(
     model='gemini-2.0-flash',
-    name='maps_assistant_agent',
+    name='google-map-adk',
     instruction=prompt.instruction,
     tools=[
         MCPToolset(

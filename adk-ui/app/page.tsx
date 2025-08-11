@@ -30,7 +30,7 @@ export default function Home() {
   const [messages, setMessages] = useState<Message[]>([]);
   const [isLoading, setIsLoading] = useState(false);
   const [currentSession, setCurrentSession] = useState<SessionConfig>({
-    appName: 'gmap-buddy',
+    appName: 'google-map-adk',
     userId: 'user',
     sessionId: 's_123',
   });
